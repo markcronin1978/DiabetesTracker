@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -22,11 +23,11 @@ public class Patient {
 	@NotEmpty
 	private String address3;
 	private String address4;
-	@NotNull
+	@NotNull @Min(3)
 	private int phoneNumber;
-	@NotNull
+	@NotEmpty
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String phyName;
 	
 	public Patient (){
@@ -34,7 +35,7 @@ public class Patient {
 	}
 	
 	public Patient(String id, String name, String address1, String address2,
-			String address3, String address4, int phoneNumber, Date dateOfBirth, String phyName) {
+			String address3, String address4, int phoneNumber, String dateOfBirth, String phyName) {
 		super();
 		this.id = UUID.randomUUID().toString();
 		this.name = name;
@@ -104,11 +105,11 @@ public class Patient {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
