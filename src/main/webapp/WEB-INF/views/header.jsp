@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-	<!--  <link rel="stylesheet" type="text/css" href='<c:url value ="/stylesheet/main.css"/>'/>-->
+	<link rel="stylesheet" type="text/css" href='<c:url value ="/stylesheets/main.css"/>'/>
 		
 	<title>DiabetesTracker</title>
 
@@ -18,4 +18,4 @@
 				<h1>DiabetesTracker</h1>				
 			</div>
 			
-			<div id="content" style="text-align:center">
+			

@@ -21,8 +21,8 @@ public class Physician {
 	@NotEmpty
 	private String address3;
 	private String address4;
-	@NotNull @Min(3)
-	private int phoneNumber;
+	@NotEmpty @Min(3)
+	private String phoneNumber;
 	@NotEmpty @Email
 	private String username;
 	@NotEmpty
@@ -32,7 +32,7 @@ public class Physician {
 		this.id = UUID.randomUUID().toString();
 	}
 	public Physician(int id, String name, String address1, String address2,
-			String address3, String address4, int phoneNumber, String username, String password) {
+			String address3, String address4, String phoneNumber, String username, String password) {
 		super();
 		this.id = UUID.randomUUID().toString();
 		this.name = name;
@@ -80,10 +80,10 @@ public class Physician {
 	public void setAddress4(String address4) {
 		this.address4 = address4;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	

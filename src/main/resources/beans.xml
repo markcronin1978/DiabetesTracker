@@ -36,6 +36,8 @@
 
 	
 	<!-- Setting up security for the prototype deployment -->
+	<security:http pattern="/stylesheets/**" security="none"/>
+	
 	<security:http auto-config = "true" use-expressions="true">
 		<security:form-login login-page="/"
 			default-target-url="/userRole/" 

@@ -7,7 +7,9 @@
 	
 		<jsp:include page="linkDisplay.jsp" />	<!-- I am including the LinkDisplay.jsp page -->
 			
-			<p>Patient Medical Information</p>
+		<div id="content" style="text-align:center">
+		
+			<h3>Patient Medical Information</h3>
 				<c:url value="/medicalController/medicalHistory" var="form_url"/>    
 					<form:form action="${form_url}" commandName="history">    <!-- This is the customer form.  -->
 						<table align="center">
@@ -38,5 +40,6 @@
 							</tr>
 						</table>
 					</form:form>
-					
+		</div>
+				
 	<jsp:include page="footer.jsp" />	<!-- I am including the footer.jsp page -->

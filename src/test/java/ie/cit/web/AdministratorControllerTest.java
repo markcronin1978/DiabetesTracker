@@ -4,30 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.ui.ExtendedModelMap;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.PathVariable;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-
-
-
 import static org.mockito.Mockito.mock;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.notNullValue;
-//import static org.hamcrest.CoreMatchers.nullValue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-//import static org.mockito.Mockito.*;
-import static org.hamcrest.CoreMatchers.*;
-
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
-//import org.mockito.stubbing.OngoingStubbing;
-
-import org.mockito.ArgumentMatcher;
-import org.mockito.Mockito;
-
 import ie.cit.domain.Physician;
 import ie.cit.service.AdminService;
 
@@ -51,7 +35,7 @@ public class AdministratorControllerTest {
 		p.setAddress2("Millstreet");
 		p.setAddress3("Co. Cork");
 		p.setAddress4("Ireland");
-		p.setPhoneNumber(12345678);
+		p.setPhoneNumber("0895623658");
 		p.setUsername("markcronin120@gmail.com");
 		p.setPassword("password");
 				

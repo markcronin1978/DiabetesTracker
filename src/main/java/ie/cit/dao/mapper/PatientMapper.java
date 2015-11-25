@@ -20,7 +20,7 @@ public class PatientMapper implements RowMapper<Patient>{
 		p.setAddress2(rs.getString("address2"));
 		p.setAddress3(rs.getString("address3"));
 		p.setAddress4(rs.getString("address4"));
-		p.setPhoneNumber(rs.getInt("phoneno"));
+		p.setPhoneNumber(rs.getString("phoneno"));
 		p.setDateOfBirth(rs.getString("dateOfBirth"));
 		p.setPhyName(rs.getString("phyname"));		
 		return p;

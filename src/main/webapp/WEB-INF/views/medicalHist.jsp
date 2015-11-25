@@ -7,8 +7,10 @@
 	<jsp:include page="header.jsp" /> <!-- Include the header.jsp page on build -->
 	
 		<jsp:include page="linkDisplay.jsp" />
+			
+			<div id="content" style="text-align:center">
 				
-				<h3>Edit Medical History Information</p>
+				<h3>Edit Medical History Information</h3>
 				
 				<c:url value="/medicalController/medicalHistory" var="form_url"/>    
 					<form:form action="${form_url}" commandName="history">    
@@ -41,6 +43,8 @@
 							</tr>
 						</table>
 					</form:form>
+					
+				</div>
 					
 
 	<jsp:include page="footer.jsp" />

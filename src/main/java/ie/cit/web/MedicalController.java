@@ -21,20 +21,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-
-
 @Controller
 @RequestMapping("/medicalController")
 public class MedicalController {
 	
 	private MedicalService medicalService;
 	Patient p = new Patient();
-	RegularCheckUp rc = new RegularCheckUp();
+	RegularCheckUp rc;
 	Patient patient;
 	Physician physician;
 	History history;
-
 
 	
 	@Autowired
@@ -57,7 +53,9 @@ public class MedicalController {
 		   
 		   String name = medicalService.getName(userDetails.getUsername());
 		   physician = new Physician();
-		   physician.setName(name);   /**Here i am declaring that the physicians name for the patient**/	
+		   physician.setName(name);   /**Here i am declaring that the physicians name for the patient**/
+		   rc = new RegularCheckUp();
+		   
 
 		   model.addAttribute("patient", medicalService.findall(physician.getName()));
 		   return "patientList";		   
@@ -164,7 +162,7 @@ public class MedicalController {
 	
 	@RequestMapping(value = "/yearlyCheckUp", method = RequestMethod.GET)
 	public String YearlyCheckUp(Model model){
-		String Error_msg = "Regular Consultation Must be conducted Prior to Yearly Consultation";
+		String Error_msg = "Regular Consultation Must be conducted Prior to a Yearly Consultation";
 		
 		if(rc.getPatientId()==null){
 			model.addAttribute("patient", medicalService.findall(physician.getName()));
@@ -190,10 +188,16 @@ public class MedicalController {
 	}
 	
 	/**
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	 * Display patient history
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/history/{id}", method = RequestMethod.GET)
 	public String ViewMedicalHistory(Model model, @PathVariable String id){
 		model.addAttribute("history", medicalService.getAll(id));
-		return "medicalHist";
-	}**/
+		model.addAttribute("regHist", medicalService.getRegAll(id));
+		return "history";
+	}
 
 }

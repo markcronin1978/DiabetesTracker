@@ -13,7 +13,6 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
@@ -21,7 +20,6 @@ import org.junit.Test;
 import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;
 import org.springframework.ui.ExtendedModelMap;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 
 import ie.cit.domain.Physician;
@@ -50,7 +48,7 @@ public class PhysicianControllerTest {
 		p.setAddress2("Millstreet");
 		p.setAddress3("Co. Cork");
 		p.setAddress4("Ireland");
-		p.setPhoneNumber(1234567895);
+		p.setPhoneNumber("0834567895");
 		p.setUsername("markcronin120@gmail.com");
 		p.setPassword("password");
 		
@@ -61,7 +59,7 @@ public class PhysicianControllerTest {
 		p1.setAddress2("Millstreet");
 		p1.setAddress3("Co. Cork");
 		p1.setAddress4("Ireland");
-		p1.setPhoneNumber(1234567895);
+		p1.setPhoneNumber("0834567895");
 		p1.setUsername("markcronin120@gmail.com");
 		p1.setPassword("password");
 		
@@ -112,10 +110,8 @@ public class PhysicianControllerTest {
 	@Test
 	public void testAddPhysician1() throws Exception{
 		when(result.hasErrors()).thenReturn(false);
-		String view = tested.AddPhysician(p, result, model);
-		
+		String view = tested.AddPhysician(p, result, model);		
 		assertThat(view, CoreMatchers.equalTo("redirect:/physician/"));
-		//verify(ps).save(p);
 	}
 
 	@Test
@@ -131,9 +127,7 @@ public class PhysicianControllerTest {
 		assertThat(view, CoreMatchers.equalTo("physicianForm"));
 		assertThat(model.get("physician"), notNullValue());
 		verify(ps).getById("1L");
-	}
-	
-	
+	}	
 }
 
 	

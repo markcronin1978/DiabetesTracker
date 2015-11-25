@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="/userRole")
 public class UserController {
 	
-	Physician phy = new Physician();
+	//Physician phy = new Physician();
 	/**
 	 * This controller is used to distinguish the role of the user logging in. 
 	 * Checks is user is administrator, then redirects them to the AdminController
-	 * if a customer, redirects them to the SaleOrderController
+	 * if a physician, redirects them to the medicalController
 	 * @param model
 	 * @return
 	 */

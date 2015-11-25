@@ -6,6 +6,8 @@
 	<jsp:include page="header.jsp" /> <!-- Include the header.jsp page on build -->
 	
 		<jsp:include page="linkDisplay.jsp" />
+		
+		<div id="content" style="text-align:center">
 			
 			<h2>Physician List:</h2>
 				<h3>To Edit Physician Information, Click on Physician Name</h3>
@@ -13,5 +15,7 @@
 					<p><a href ='<c:url value = "/physician/${phy.id}/"/>'>${phy.name}</a> ${phy.address1} ${phy.address2} ${phy.address3} ${phy.address4} </p> 
 					 <p>Telephone Number : ${phy.phoneNumber}</p> 
 				</c:forEach>    
-	<!-- <a href='<c:url value="/customer/"/>'> Customer List |</a> -->
+				
+		</div>
+	
 	<jsp:include page="footer.jsp" />

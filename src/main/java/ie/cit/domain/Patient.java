@@ -23,8 +23,8 @@ public class Patient {
 	@NotEmpty
 	private String address3;
 	private String address4;
-	@NotNull @Min(3)
-	private int phoneNumber;
+	@NotEmpty @Min(3)
+	private String phoneNumber;
 	@NotEmpty
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String dateOfBirth;
@@ -35,7 +35,7 @@ public class Patient {
 	}
 	
 	public Patient(String id, String name, String address1, String address2,
-			String address3, String address4, int phoneNumber, String dateOfBirth, String phyName) {
+			String address3, String address4, String phoneNumber, String dateOfBirth, String phyName) {
 		super();
 		this.id = UUID.randomUUID().toString();
 		this.name = name;
@@ -97,11 +97,11 @@ public class Patient {
 		this.address4 = address4;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 

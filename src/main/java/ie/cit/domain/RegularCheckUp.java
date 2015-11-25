@@ -8,21 +8,28 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 public class RegularCheckUp {
 	
 	private String patientId;
 	private String date;
+	private String checkupDate;
 
 	@NotEmpty
 	private String bloodPressureLevel;
 	@NotNull 
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double bloodSugarLevel;
 	@NotNull
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double cholesterolLevel;
 	@NotNull 
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double eGFRRatio;
-	@NotNull 
+	@NotNull
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double hbA1cLevel;
 	@NotEmpty
 	private String hyperEpisode;
@@ -30,11 +37,14 @@ public class RegularCheckUp {
 	@NotEmpty
 	private String hypoEpisode;
 	private int hypoNoOfTimes;
-	@NotNull  
+	@NotNull
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double urineLevel;
 	@NotNull 
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double weight;
 	@NotNull
+	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double bmi;
 	private String comment;
 	
@@ -42,7 +52,7 @@ public class RegularCheckUp {
 		
 	}
 	
-	public RegularCheckUp(String patientId, String date,
+	public RegularCheckUp(String patientId, String date,String checkupDate,
 			String bloodPressureLevel,double bloodSugarLevel, 
 			double cholesterolLevel, double eGFRRatio,
 			double hbA1cLevel, String hyperEpisode, int hyperNoOfTimes,
@@ -51,6 +61,7 @@ public class RegularCheckUp {
 		super();
 		this.patientId = patientId;
 		this.date = date;
+		this.checkupDate= checkupDate;
 		this.bloodPressureLevel = bloodPressureLevel;
 		this.bloodSugarLevel = bloodSugarLevel;
 		this.cholesterolLevel = cholesterolLevel;
@@ -64,6 +75,15 @@ public class RegularCheckUp {
 		this.weight = weight;
 		this.bmi = bmi;
 		this.comment = comment;
+	}
+	
+
+	public String getCheckupDate() {
+		return checkupDate;
+	}
+
+	public void setCheckupDate(String checkupDate) {
+		this.checkupDate = checkupDate;
 	}
 
 	public String getPatientId() {

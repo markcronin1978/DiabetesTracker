@@ -7,7 +7,9 @@
 	
 		<jsp:include page="linkDisplay.jsp" />	<!-- I am including the LinkDisplay.jsp page -->
 			
-			<p>Add Patient Information</p>
+			<div id="content" style="text-align:center">
+			
+			<h3>Add Patient Information</h3>
 				<c:url value="/medicalController/saveYearlyCheckup" var="form_url"/>    
 					<form:form action="${form_url}" commandName="yearlyCheckup">    
 						<table align="center">
@@ -63,5 +65,6 @@
 							</tr>
 						</table>
 					</form:form>
+			</div>
 					
 	<jsp:include page="footer.jsp" />	<!-- I am including the footer.jsp page -->

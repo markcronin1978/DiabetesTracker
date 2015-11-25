@@ -29,7 +29,7 @@ public class PatientControllerTest {
 		p.setAddress3("Co. Cork");
 		p.setAddress4("Ireland");
 		p.setDateOfBirth("1978-10-02");
-		p.setPhoneNumber(112365987);
+		p.setPhoneNumber("112365987");
 		p.setPhyName("Dr Micheal Murpty");
 		
 	}

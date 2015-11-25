@@ -10,9 +10,4 @@ import ie.cit.domain.Patient;
 @Service
 public interface PatientService {
 
-
-	
-
-
-
 }

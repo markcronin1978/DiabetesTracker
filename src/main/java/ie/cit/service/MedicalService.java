@@ -42,6 +42,8 @@ public interface MedicalService {
 	void save(YearlyCheckup yearlyCheckup);
 
 	String getPatientById(String id);
-	
+
+	List <RegularCheckUp> getRegAll(String id);
+		
 	
 }

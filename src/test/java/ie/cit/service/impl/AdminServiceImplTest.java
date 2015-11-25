@@ -33,7 +33,7 @@ public class AdminServiceImplTest {
 		p.setAddress2("Millstreet");
 		p.setAddress3("Co. Cork");
 		p.setAddress4("Ireland");
-		p.setPhoneNumber(12345678);
+		p.setPhoneNumber("082345678");
 		p.setUsername("markcronin120@gmail.com");
 		p.setPassword("password");
 		

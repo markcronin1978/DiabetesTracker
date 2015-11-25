@@ -20,7 +20,7 @@ public class PhysicianMapper implements RowMapper<Physician> {
 		ph.setAddress2(rs.getString("address2"));
 		ph.setAddress3(rs.getString("address3"));
 		ph.setAddress4(rs.getString("address4"));
-		ph.setPhoneNumber(rs.getInt("telephone"));
+		ph.setPhoneNumber(rs.getString("telephone"));
 		ph.setUsername(rs.getString("username"));
 		ph.setPassword(rs.getString("password"));
 		

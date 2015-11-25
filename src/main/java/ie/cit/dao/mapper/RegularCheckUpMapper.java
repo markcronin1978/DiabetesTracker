@@ -14,6 +14,7 @@ public class RegularCheckUpMapper implements RowMapper<RegularCheckUp> {
 		
 		rc.setPatientId(rs.getString("patientid"));
 		rc.setDate(rs.getString("date"));
+		rc.setCheckupDate(rs.getString("date"));
 		rc.setBloodPressureLevel(rs.getString("bloodpressurelevel"));
 		rc.setBloodSugarLevel(rs.getDouble("bloodsugarlevel"));
 		rc.setCholesterolLevel(rs.getDouble("cholesterollevel"));

@@ -5,7 +5,7 @@
 
  
 
-	<div id = nav>
+<div id = nav style="text-align:center">
 	<ul>   <!-- here i am declaring that any view of link with /customer/ in the url has to be sent through the security checks in the spring-infrastructure.xml file -->
 		<sec:authorize access="hasRole('ROLE_ADMIN')">	
 				<a href='<c:url value="/physician/add"/>'> Add Physician |</a>		
@@ -19,16 +19,10 @@
 			<a href='<c:url value="/medicalController/yearlyCheckUp"/>'> Annual Consultation |</a>
 		</sec:authorize>
 
-		<!-- 	<a href="/DiabetesTracker/logout"> Logout</a>			
-				<form action ="/DiabetesTracker/logout" method="post">				
-					<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></td>
-				</form> -->
-	</ul>
-	</div>
 		
 			<a href="../logout"> Logout</a>			
 			<form action ="logout" method="post">				
 				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></td>
 			</form>
 	</ul>
-	</div>
+</div>

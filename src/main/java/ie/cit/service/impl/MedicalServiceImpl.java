@@ -73,5 +73,9 @@ public class MedicalServiceImpl implements MedicalService {
 		return patientRepository.getPatientById(id);
 	}
 
+	public List<RegularCheckUp> getRegAll(String id) {
+		return regularCheckUpRepository.getRegAll(id);
+	}
+
 
 }
