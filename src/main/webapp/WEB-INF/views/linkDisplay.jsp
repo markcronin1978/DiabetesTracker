@@ -6,7 +6,7 @@
  
 
 <div id = nav style="text-align:center">
-	<ul>   <!-- here i am declaring that any view of link with /customer/ in the url has to be sent through the security checks in the spring-infrastructure.xml file -->
+	<ul>  
 		<sec:authorize access="hasRole('ROLE_ADMIN')">	
 				<a href='<c:url value="/physician/add"/>'> Add Physician |</a>		
 		</sec:authorize>

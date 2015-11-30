@@ -9,6 +9,16 @@
 		<jsp:include page="linkDisplay.jsp" />
 		
 		<div id="content" style="text-align:center">
+		
+		<p style="color:red"><c:out value="${Error_msg1}" /></p>
+			<c:url value="/medicalController/name" var="form_url"/>
+				<form:form method="post" action="${form_url}">
+				 	<table align="center">
+						<tr>
+							<td>Enter Patient Name to Search the Medical Database:</td><td><input name="name" path="sku" size="10" /></td><td><input type="submit" value="Search"/></td> 
+						</tr> 
+					</table>
+				</form:form>
 			
 			<h2>Patient List:</h2>
 			<p>To view a Patients' Medical history Click on Patients' Name.</p>

@@ -3,6 +3,7 @@ package ie.cit.web;
 
 
 import javax.validation.Valid;
+
 import ie.cit.domain.History;
 import ie.cit.domain.Patient;
 import ie.cit.domain.Physician;
@@ -12,7 +13,6 @@ import ie.cit.service.MedicalService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,17 +20,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/medicalController")
 public class MedicalController {
 	
 	private MedicalService medicalService;
-	Patient p = new Patient();
-	RegularCheckUp rc;
-	Patient patient;
-	Physician physician;
-	History history;
+	//Patient p;
+	RegularCheckUp rc = new RegularCheckUp();
+	//Patient patient;
+	Physician physician = new Physician();
+	History history = new History();
 
 	
 	@Autowired
@@ -45,20 +46,31 @@ public class MedicalController {
 	 * @return a list of physicians own patients
 	 */	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	private String getUserDetails(Model model) {
-		   UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().
-		   getAuthentication().getPrincipal();
-		   
-		   /**Here i am getting the physicians Name  from the user login details**/
-		   
-		   String name = medicalService.getName(userDetails.getUsername());
+	public String UserDetails(Model model) {
+		   String name = medicalService.getName(SecurityContextHolder.getContext().getAuthentication().getName());
 		   physician = new Physician();
 		   physician.setName(name);   /**Here i am declaring that the physicians name for the patient**/
-		   rc = new RegularCheckUp();
-		   
-
-		   model.addAttribute("patient", medicalService.findall(physician.getName()));
+		   //rc = new RegularCheckUp();
+		   model.addAttribute("patient", medicalService.findall(name));
 		   return "patientList";		   
+	}
+	/**
+	 * Search Database for a specific patient
+	 * @param name
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value= "/name", method = RequestMethod.POST)
+	public String searchResult(@RequestParam("name") String name, Model model){
+		
+		if(medicalService.findByName(name.toUpperCase()).isEmpty()){
+			model.addAttribute("patient", medicalService.findall(physician.getName()));
+			model.addAttribute("Error_msg1", "Name Not Found");
+			return "patientList";
+		}else{
+			model.addAttribute("patient", medicalService.findByName(name.toUpperCase()));
+			return "patientList";
+		}		
 	}
 	/**
 	 * Add new patient
@@ -66,10 +78,11 @@ public class MedicalController {
 	 * @return
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String AddPatient(Model model){
+	public String PatientForm(Model model){
 		model.addAttribute("patient", new Patient());
 		return "patientForm";
 	}
+	
 	/**
 	 * Save new patient to database
 	 * @param patient
@@ -84,7 +97,7 @@ public class MedicalController {
 		}else{
 			patient.setPhyName(physician.getName());
 			medicalService.save(patient);
-			p.setId(patient.getId());
+			rc.setPatientId(patient.getId());
 			return "redirect:/medicalController/medicalHistoryView/";
 		}
 	}
@@ -114,13 +127,22 @@ public class MedicalController {
 		if(results.hasErrors()){
 			return "medicalHistForm";
 		}else{
-			history.setPatientId(p.getId());
+			history.setPatientId(rc.getPatientId());
 			medicalService.save(history);
 			return "redirect:/medicalController/";
 		}
 	}	
 
 	/**
+	 * 	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String AddPhysician(@ModelAttribute @Valid Physician physician, BindingResult results, Model model ){
+		if(results.hasErrors()){
+			return "physicianForm";
+		}else{
+			physicianService.save(physician);	
+			return "redirect:/physician/";		
+		}		
+	}
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String ViewMedicalHistory(Model model, @PathVariable String id){
 		model.addAttribute("history", medicalService.getAll(id));
@@ -137,6 +159,7 @@ public class MedicalController {
 	 */
 	@RequestMapping(value = "/regularCheckup/{id}", method = RequestMethod.GET)
 	public String RegularCheckUp(Model model, @PathVariable String id){
+		rc = new RegularCheckUp();
 		rc.setPatientId(id);
 		model.addAttribute("regularCheckUp", new RegularCheckUp());		
 		return "regularCheckup";
@@ -150,7 +173,7 @@ public class MedicalController {
 	 * @return
 	 */
 	@RequestMapping(value = "/saveRegCheckup", method = RequestMethod.POST)
-	public String AddWeight(@ModelAttribute @Valid RegularCheckUp regularCheckUp, BindingResult results, Model model){
+	public String AddRegularCheckUp(@ModelAttribute @Valid RegularCheckUp regularCheckUp, BindingResult results, Model model){
 		if(results.hasErrors()){
 			return "regularCheckup";
 		}else{
@@ -181,8 +204,8 @@ public class MedicalController {
 		}else{
 			yearlyCheckup.setPatientId(rc.getPatientId());
 			medicalService.save(yearlyCheckup);
-			RegularCheckUp rc = new RegularCheckUp();
-			return "redirect:/medicalController/medicalHistoryView/";
+			rc = new RegularCheckUp();
+			return "redirect:/medicalController/";
 		}
 		
 	}

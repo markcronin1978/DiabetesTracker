@@ -41,9 +41,19 @@ public interface MedicalService {
 
 	void save(YearlyCheckup yearlyCheckup);
 
-	String getPatientById(String id);
+	//String getPatientById(String id);
 
 	List <RegularCheckUp> getRegAll(String id);
+
+	List<Patient> findByName(String name);
+	
+	/**
+	 * Method was created for testing reasons.
+	 * @param name
+	 * @return
+	 */
+	Patient getPatientName(String name);
+	
 		
 	
 }

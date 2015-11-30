@@ -78,4 +78,18 @@ public class MedicalServiceImpl implements MedicalService {
 	}
 
 
+	public List<Patient> findByName(String name) {
+		return patientRepository.findByName(name);
+	}
+
+	/**
+	 * Created for testing reason
+	 * @param name
+	 * @return
+	 */
+	public Patient getPatientName(String name) {
+		return patientRepository.getPatientName(name);
+	}
+
+
 }

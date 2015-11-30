@@ -33,9 +33,11 @@ public class RegularCheckUp {
 	private double hbA1cLevel;
 	@NotEmpty
 	private String hyperEpisode;
+	@NotNull
 	private int hyperNoOfTimes;
 	@NotEmpty
 	private String hypoEpisode;
+	@NotNull
 	private int hypoNoOfTimes;
 	@NotNull
 	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
@@ -61,7 +63,6 @@ public class RegularCheckUp {
 		super();
 		this.patientId = patientId;
 		this.date = date;
-		this.checkupDate= checkupDate;
 		this.bloodPressureLevel = bloodPressureLevel;
 		this.bloodSugarLevel = bloodSugarLevel;
 		this.cholesterolLevel = cholesterolLevel;
@@ -76,7 +77,30 @@ public class RegularCheckUp {
 		this.bmi = bmi;
 		this.comment = comment;
 	}
-	
+
+	public RegularCheckUp(String patientId, String checkupDate,
+			String bloodPressureLevel, double bloodSugarLevel,
+			double cholesterolLevel, double eGFRRatio, double hbA1cLevel,
+			String hyperEpisode, int hyperNoOfTimes, String hypoEpisode,
+			int hypoNoOfTimes, double urineLevel, double weight, double bmi,
+			String comment) {
+		super();
+		this.patientId = patientId;
+		this.checkupDate = checkupDate;
+		this.bloodPressureLevel = bloodPressureLevel;
+		this.bloodSugarLevel = bloodSugarLevel;
+		this.cholesterolLevel = cholesterolLevel;
+		this.eGFRRatio = eGFRRatio;
+		this.hbA1cLevel = hbA1cLevel;
+		this.hyperEpisode = hyperEpisode;
+		this.hyperNoOfTimes = hyperNoOfTimes;
+		this.hypoEpisode = hypoEpisode;
+		this.hypoNoOfTimes = hypoNoOfTimes;
+		this.urineLevel = urineLevel;
+		this.weight = weight;
+		this.bmi = bmi;
+		this.comment = comment;
+	}
 
 	public String getCheckupDate() {
 		return checkupDate;

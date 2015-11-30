@@ -11,8 +11,14 @@ public interface PatientRepository {
 	void save(Patient patient);
 
 	String getPatientById(String id);
-	
-	
-	
+
+	List<Patient> findByName(String name);
+
+	/**
+	 * Created for testing reason
+	 * @param name
+	 * @return
+	 */
+	Patient getPatientName(String name);		
 
 }
