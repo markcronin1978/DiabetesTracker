@@ -206,6 +206,7 @@ public class MedicalController {
 			yearlyCheckup.setPatientId(rc.getPatientId());
 			medicalService.save(yearlyCheckup);
 			rc = new RegularCheckUp();
+			yr = new YearlyCheckup();
 			return "redirect:/medicalController/";
 		}
 		

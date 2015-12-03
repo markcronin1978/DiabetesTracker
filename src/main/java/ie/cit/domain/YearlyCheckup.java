@@ -31,17 +31,30 @@ public class YearlyCheckup {
 	@NotEmpty
 	private String footCorn;
 	@NotNull
-	private double abdCircumference; 
+	private String abdCircumference; 
 	private String comment;
 	
 	public YearlyCheckup(){
 		
 	}
 	
+	/**
+	 * @param patientId
+	 * @param date
+	 * @param eyeRetinspathy
+	 * @param fluVaccineRecieved
+	 * @param dateFluVaccineRecieved
+	 * @param footInfection
+	 * @param footPulse
+	 * @param footVibrationSense
+	 * @param footCorn
+	 * @param abdCircumference
+	 * @param comment
+	 */
 	public YearlyCheckup(String patientId, String date, String eyeRetinspathy,
 			String fluVaccineRecieved, String dateFluVaccineRecieved,
 			String footInfection, String footPulse, String footVibrationSense,
-			String footCorn, double abdCircumference, String comment) {
+			String footCorn, String abdCircumference, String comment) {
 		super();
 		this.patientId = patientId;
 		this.date = date;
@@ -130,11 +143,11 @@ public class YearlyCheckup {
 		this.footCorn = footCorn;
 	}
 
-	public double getAbdCircumference() {
+	public String getAbdCircumference() {
 		return abdCircumference;
 	}
 
-	public void setAbdCircumference(double abdCircumference) {
+	public void setAbdCircumference(String abdCircumference) {
 		this.abdCircumference = abdCircumference;
 	}
 

@@ -23,7 +23,7 @@ public class YearlyCheckupMapper implements RowMapper<YearlyCheckup> {
 		yc.setFootPulse(rs.getString("footpulse"));
 		yc.setFootVibrationSense(rs.getString("footvibrationsense"));
 		yc.setFootCorn(rs.getString("footcorn"));
-		yc.setAbdCircumference(rs.getDouble("abdcircumference"));
+		yc.setAbdCircumference(rs.getString("abdcircumference"));
 		yc.setComment(rs.getString("comment"));
 
 		return yc;
