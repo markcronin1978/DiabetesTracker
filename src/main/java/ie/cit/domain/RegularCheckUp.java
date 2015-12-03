@@ -54,7 +54,7 @@ public class RegularCheckUp {
 		
 	}
 	
-	public RegularCheckUp(String patientId, String date,String checkupDate,
+	public RegularCheckUp(String patientId, String date, String checkupDate,
 			String bloodPressureLevel,double bloodSugarLevel, 
 			double cholesterolLevel, double eGFRRatio,
 			double hbA1cLevel, String hyperEpisode, int hyperNoOfTimes,

@@ -27,7 +27,7 @@
 				
 				<table align="center">
 				<tr>
-					<td>  Name |</td><td>Address 1 |</td><td>Address 2 |</td><td>Address 3 |</td><td>Address 4 |</td><td>Date of Birth |</td><td>Telephone Number |</td><td>Regular Consultation |</td>
+					<td><b>  Name |</b></td><td><b>Address 1 |</b></td><td><b>Address 2 |</b></td><td><b>Address 3 |</b></td><td><b>Address 4 |</b></td><td><b>Date of Birth |</b></td><td><b>Telephone Number |</b></td><td><b>Regular Consultation |</b></td>
 				</tr>
 										
 					<c:forEach var="pat" items="${patient}">

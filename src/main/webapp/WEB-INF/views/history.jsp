@@ -12,7 +12,7 @@
 			<h2>Patient Medical History:</h2>
 					<table cellpadding='10' align="center">	
 						<tr>					
-							<td>Smoker</td><td>Insulin Dependant</td><td>Pneumoccal Vaccine</td><td>Comments</td>			
+							<td><b>Smoker</b></td><td><b>Insulin Dependant</b></td><td><b>Pneumoccal Vaccine</b></td><td><b>Comments</b></td>			
 						</tr>
 						<tr>
 							<td>${history.smoker}</td><td>${history.insulinDependant}</td><td>${history.pneumococcalVaccine}</td><td>${history.comments}</td>
@@ -23,7 +23,7 @@
 				<h2>Patient Regular Check-up History</h2>
 				<table cellpadding='5' align="center">
 					<tr>
-						<td>Date (YYYY-MM-DD)</td><td>Blood Pressure Level</td><td>Blood Sugar Level</td><td>Cholesterol Level</td><td>eGFR Ratio</td><td>hbA1c Level</td><td>Hyperglycemia Episode</td><td>Hyperglycemia Number</td><td>Hypoglycemia Episode</td><td>Hypoglycemia Number</td><td>Urine Level</td><td>Weight</td><td>Bmi</td><td>Comments</td>
+						<td><b>Date (YYYY-MM-DD)</b></td><td><b>Blood Pressure Level</b></td><td><b>Blood Sugar Level</b></td><td><b>Cholesterol Level</b></td><td><b>eGFR Ratio</b></td><td><b>hbA1c Level</b></td><td><b>Hyperglycemia Episode</b></td><td><b>Hyperglycemia Number</b></td><td><b>Hypoglycemia Episode</b></td><td><b>Hypoglycemia Number</b></td><td><b>Urine Level</b></td><td><b>Weight</b></td><td><b>Bmi</b></td><td><b>Comments</b></td>
 					</tr>
 			  			<c:forEach var="regHist" items="${regHist}">
 			  				<tr>

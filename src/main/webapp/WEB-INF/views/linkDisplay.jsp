@@ -14,13 +14,14 @@
 		<sec:authorize access="hasRole('ROLE_USER')">		
 			<sec:authentication property="principal" var ="user" />
 			<p>Welcome <c:out value="${user.username}" /></p>
-			<a href='<c:url value="/medicalController/"/>'> Home |</a>
-			<a href='<c:url value="/medicalController/add"/>'> Add Patient |</a>			
-			<a href='<c:url value="/medicalController/yearlyCheckUp"/>'> Annual Consultation |</a>
+			<a href='<c:url value="/medicalController/"/>'><b> Home</b></a> |
+			<a href='<c:url value="/medicalController/add"/>'><b> Add Patient & Medical History</b></a>  |			
+			<a href='<c:url value="/medicalController/yearlyCheckUp"/>'><b> Annual Consultation</b></a> |
+			<a href='<c:url value="/medicalController/add"/>'><b> Edit Patient Information & Medical History</b></a> |
 		</sec:authorize>
 
 		
-			<a href="../logout"> Logout</a>			
+			<a href="../logout"><b> Logout</b></a>			
 			<form action ="logout" method="post">				
 				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></td>
 			</form>

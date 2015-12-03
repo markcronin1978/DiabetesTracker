@@ -32,6 +32,7 @@ public class MedicalController {
 	//Patient patient;
 	Physician physician = new Physician();
 	History history = new History();
+	YearlyCheckup yr = new YearlyCheckup();
 
 	
 	@Autowired
