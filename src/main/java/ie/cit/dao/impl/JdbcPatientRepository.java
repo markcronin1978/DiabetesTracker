@@ -88,4 +88,16 @@ public class JdbcPatientRepository implements PatientRepository{
 		return jdbcTemplate.queryForObject(sql, new PatientMapper(), name);		
 	}
 
+	@Override
+	public List<Patient> findAll() {
+		String sql = "SELECT * FROM patient ORDER BY name ASC";
+		return jdbcTemplate.query(sql, new PatientMapper());
+	}
+
+	@Override
+	public Patient getById(String id) {
+		String sql = "SELECT * FROM patient WHERE id = ?";
+		return jdbcTemplate.queryForObject(sql, new PatientMapper(), id);
+	}
+
 }

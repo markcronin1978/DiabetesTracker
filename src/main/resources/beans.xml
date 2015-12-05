@@ -33,8 +33,6 @@
 	</bean>
 	
 	
-
-	
 	<!-- Setting up security for the prototype deployment -->
 	<security:http pattern="/stylesheets/**" security="none"/>
 	

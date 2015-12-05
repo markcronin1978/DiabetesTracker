@@ -19,6 +19,12 @@ public interface PatientRepository {
 	 * @param name
 	 * @return
 	 */
-	Patient getPatientName(String name);		
+	Patient getPatientName(String name);
+
+	List<Patient> findAll();
+
+	Patient getById(String id);		
+	
+	
 
 }

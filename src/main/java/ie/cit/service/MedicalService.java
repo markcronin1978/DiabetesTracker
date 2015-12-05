@@ -53,6 +53,8 @@ public interface MedicalService {
 	 * @return
 	 */
 	Patient getPatientName(String name);
+
+	List<YearlyCheckup> getYrAll(String id);
 	
 		
 	

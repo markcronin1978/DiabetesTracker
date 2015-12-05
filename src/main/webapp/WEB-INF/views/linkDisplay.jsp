@@ -17,7 +17,8 @@
 			<a href='<c:url value="/medicalController/"/>'><b> Home</b></a> |
 			<a href='<c:url value="/medicalController/add"/>'><b> Add Patient & Medical History</b></a>  |			
 			<a href='<c:url value="/medicalController/yearlyCheckUp"/>'><b> Annual Consultation</b></a> |
-			<a href='<c:url value="/medicalController/add"/>'><b> Edit Patient Information & Medical History</b></a> |
+			<a href='<c:url value="/patientController/"/>'><b> Edit Patient Information</b></a> |
+			<a href='<c:url value="/historyController/"/>'><b> Edit Patient Medical Information</b></a> |
 		</sec:authorize>
 
 		

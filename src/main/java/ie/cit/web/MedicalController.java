@@ -51,7 +51,6 @@ public class MedicalController {
 		   String name = medicalService.getName(SecurityContextHolder.getContext().getAuthentication().getName());
 		   physician = new Physician();
 		   physician.setName(name);   /**Here i am declaring that the physicians name for the patient**/
-		   //rc = new RegularCheckUp();
 		   model.addAttribute("patient", medicalService.findall(name));
 		   return "patientList";		   
 	}
@@ -188,14 +187,31 @@ public class MedicalController {
 	public String YearlyCheckUp(Model model){
 		String Error_msg = "Regular Consultation Must be conducted Prior to a Yearly Consultation";
 		
-		if(rc.getPatientId()==null){
+		try{
+			if(rc.getPatientId().isEmpty()){
+				model.addAttribute("patient", medicalService.findall(physician.getName()));
+				model.addAttribute("Error_msg", Error_msg);
+				return "patientList";
+			}else{
+				model.addAttribute("yearlyCheckup", new YearlyCheckup());
+				return "yearlyCheckUp";
+			}
+			
+		}catch (NullPointerException E){
+			
+		}
+		
+		model.addAttribute("patient", medicalService.findall(physician.getName()));
+		model.addAttribute("Error_msg", Error_msg);
+		return "patientList";
+		/**if(rc.getPatientId() == null){
 			model.addAttribute("patient", medicalService.findall(physician.getName()));
 			model.addAttribute("Error_msg", Error_msg);
 			return "patientList";
 		}else{
 			model.addAttribute("yearlyCheckup", new YearlyCheckup());
 			return "yearlyCheckUp";
-		}
+		}**/
 	}
 	
 	@RequestMapping(value = "/saveYearlyCheckup", method = RequestMethod.POST)
@@ -222,6 +238,7 @@ public class MedicalController {
 	public String ViewMedicalHistory(Model model, @PathVariable String id){
 		model.addAttribute("history", medicalService.getAll(id));
 		model.addAttribute("regHist", medicalService.getRegAll(id));
+		model.addAttribute("yearHist", medicalService.getYrAll(id));
 		return "history";
 	}
 

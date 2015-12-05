@@ -4,6 +4,7 @@ import static org.mockito.Mockito.mock;
 //import static org.mockito.Mockito.verify;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -235,6 +236,7 @@ public class MedicalControllerTest {
 		assertThat(view, CoreMatchers.equalTo("yearlyCheckUp"));
 	}
 
+
 	@Test
 	public void testViewMedicalHistory() throws Exception{
 		tested.rc.setPatientId("1l");
@@ -265,5 +267,5 @@ public class MedicalControllerTest {
 		assertThat(view, CoreMatchers.equalTo("patientList"));
 		assertThat(model.get("patient"), notNullValue());		
 	}
-	
+
 }	

@@ -37,6 +37,7 @@ public class PhysicianServiceImpl implements PhysicianService{
 		physicianRepository.save(physician);
 		
 	}
+	
 	public Physician getById(String id) {
 		return physicianRepository.getById(id);
 	}

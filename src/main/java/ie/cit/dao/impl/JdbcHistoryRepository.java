@@ -61,4 +61,10 @@ public class JdbcHistoryRepository implements HistoryRepository {
 		return jdbcTemplate.queryForObject(sql, new HistoryMapper(), id);
 	}
 
+	@Override
+	public History getById(String id) {
+		String sql = "SELECT * FROM history WHERE patientid = ?";
+		return jdbcTemplate.queryForObject(sql, new HistoryMapper(), id);
+	}
+
 }

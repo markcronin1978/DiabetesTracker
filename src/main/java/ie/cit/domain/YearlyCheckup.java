@@ -15,6 +15,7 @@ public class YearlyCheckup {
 	
 	private String patientId;
 	private String date;
+	private String checkUpDate;
 	@NotEmpty
 	private String eyeRetinspathy;
 	@NotEmpty
@@ -67,6 +68,35 @@ public class YearlyCheckup {
 		this.footCorn = footCorn;
 		this.abdCircumference = abdCircumference;
 		this.comment = comment;
+	}
+
+	public YearlyCheckup(String patientId, String Date, String checkUpDate,
+			String eyeRetinspathy, String fluVaccineRecieved,
+			String dateFluVaccineRecieved, String footInfection,
+			String footPulse, String footVibrationSense, String footCorn,
+			String abdCircumference, String comment) {
+		super();
+		this.patientId = patientId;
+		this.checkUpDate = checkUpDate;
+		this.eyeRetinspathy = eyeRetinspathy;
+		this.fluVaccineRecieved = fluVaccineRecieved;
+		this.dateFluVaccineRecieved = dateFluVaccineRecieved;
+		this.footInfection = footInfection;
+		this.footPulse = footPulse;
+		this.footVibrationSense = footVibrationSense;
+		this.footCorn = footCorn;
+		this.abdCircumference = abdCircumference;
+		this.comment = comment;
+	}
+	
+	
+
+	public String getCheckUpDate() {
+		return checkUpDate;
+	}
+
+	public void setCheckUpDate(String checkUpDate) {
+		this.checkUpDate = checkUpDate;
 	}
 
 	public String getPatientId() {

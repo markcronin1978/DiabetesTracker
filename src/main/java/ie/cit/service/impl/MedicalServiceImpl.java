@@ -69,10 +69,6 @@ public class MedicalServiceImpl implements MedicalService {
 		
 	}
 
-	public String getPatientById(String id) {
-		return patientRepository.getPatientById(id);
-	}
-
 	public List<RegularCheckUp> getRegAll(String id) {
 		return regularCheckUpRepository.getRegAll(id);
 	}
@@ -89,6 +85,11 @@ public class MedicalServiceImpl implements MedicalService {
 	 */
 	public Patient getPatientName(String name) {
 		return patientRepository.getPatientName(name);
+	}
+
+	@Override
+	public List<YearlyCheckup> getYrAll(String id) {
+		return yearlyCheckupRepository.getYrAll(id);
 	}
 
 

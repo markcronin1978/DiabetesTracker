@@ -16,6 +16,7 @@ public class YearlyCheckupMapper implements RowMapper<YearlyCheckup> {
 		
 		yc.setPatientId(rs.getString("patientid"));
 		yc.setDate(rs.getString("date"));
+		yc.setCheckUpDate(rs.getString("date"));
 		yc.setEyeRetinspathy(rs.getString("eyeretinspathy"));
 		yc.setFluVaccineRecieved(rs.getString("fluvaccinerecieved"));
 		yc.setDateFluVaccineRecieved(rs.getString("datefluvaccinerecieved"));
