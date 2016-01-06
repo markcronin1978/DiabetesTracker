@@ -29,7 +29,7 @@
 								<td><form:errors path="cholesterolLevel" style="color:red" cssclass="error" ></form:errors></td>							
 							</tr>
 							<tr>
-								<td>Patient eGFR Ratio:</td>
+								<td>Patient eGFR:</td>
 								<td><form:input path="eGFRRatio" size="10" /></td>
 								<td><form:errors path="eGFRRatio" style="color:red" cssclass="error" ></form:errors></td>								
 							</tr>
@@ -59,7 +59,7 @@
 												
 							</tr>
 							<tr>
-								<td>Patient Urine Level:</td>
+								<td>Patient Urinalysis:</td>
 								<td><form:input path="urineLevel" size="10" /></td>
 								<td><form:errors path="urineLevel" style="color:red" cssclass="error" ></form:errors></td>						
 							</tr>

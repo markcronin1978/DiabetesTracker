@@ -39,9 +39,8 @@ public class RegularCheckUp {
 	private String hypoEpisode;
 	@NotNull
 	private int hypoNoOfTimes;
-	@NotNull
-	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
-	private double urineLevel;
+	@NotEmpty
+	private String urineLevel;
 	@NotNull 
 	@NumberFormat(style = Style.NUMBER, pattern ="###.###")
 	private double weight;
@@ -58,7 +57,7 @@ public class RegularCheckUp {
 			String bloodPressureLevel,double bloodSugarLevel, 
 			double cholesterolLevel, double eGFRRatio,
 			double hbA1cLevel, String hyperEpisode, int hyperNoOfTimes,
-			String hypoEpisode, int hypoNoOfTimes, double urineLevel,
+			String hypoEpisode, int hypoNoOfTimes, String urineLevel,
 			double weight, double bmi, String comment) {
 		super();
 		this.patientId = patientId;
@@ -82,7 +81,7 @@ public class RegularCheckUp {
 			String bloodPressureLevel, double bloodSugarLevel,
 			double cholesterolLevel, double eGFRRatio, double hbA1cLevel,
 			String hyperEpisode, int hyperNoOfTimes, String hypoEpisode,
-			int hypoNoOfTimes, double urineLevel, double weight, double bmi,
+			int hypoNoOfTimes, String urineLevel, double weight, double bmi,
 			String comment) {
 		super();
 		this.patientId = patientId;
@@ -200,11 +199,11 @@ public class RegularCheckUp {
 		this.hypoNoOfTimes = hypoNoOfTimes;
 	}
 
-	public double getUrineLevel() {
+	public String getUrineLevel() {
 		return urineLevel;
 	}
 
-	public void setUrineLevel(double urineLevel) {
+	public void setUrineLevel(String urineLevel) {
 		this.urineLevel = urineLevel;
 	}
 

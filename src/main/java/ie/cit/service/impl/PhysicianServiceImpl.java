@@ -30,14 +30,17 @@ public class PhysicianServiceImpl implements PhysicianService{
 	}
 	/**
 	 * save a new Physician
+	 * Encode password.
 	 */
 	public void save(Physician physician) {
 		String encodedPass = passwordEncoder.encode(physician.getPassword());
 		physician.setPassword(encodedPass);
-		physicianRepository.save(physician);
-		
+		physicianRepository.save(physician);		
 	}
 	
+	/**
+	 * Get Physician by ID
+	 */
 	public Physician getById(String id) {
 		return physicianRepository.getById(id);
 	}

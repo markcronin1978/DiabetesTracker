@@ -21,6 +21,9 @@ public class AdminServiceImpl implements AdminService{
 		this.physicianRepository = physicianRepository;
 	}
 
+	/**
+	 * Return list of physicians
+	 */
 	public List<Physician> findAll() {
 		return physicianRepository.findAll();
 	}

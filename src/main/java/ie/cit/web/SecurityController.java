@@ -12,23 +12,37 @@ public class SecurityController {
 	 * @param model
 	 * @return
 	 */
-
 	@RequestMapping(value="/")               
 	public String login(Model model) {
 		return "login"; 
 	}
 	
+	/**
+	 * Method to handle failed login
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/loginfail")           
 	public String loginFail(Model model) {
 		model.addAttribute("errorMsg","Login Failed!");
 		return "login";
 	}
 	
+	/**
+	 * Logout method
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/logout")             
 	public String logout(Model model) {
 		return "login";
 	}
 	
+	/**
+	 * Accessed denied method
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/accessdenied") 
 	public String accessDenied(Model model) {  
 		return "accessdenied";

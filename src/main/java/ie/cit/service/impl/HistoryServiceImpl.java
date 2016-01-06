@@ -24,16 +24,23 @@ public class HistoryServiceImpl implements HistoryService {
 		this.historyRepository = historyRepository;
 	}
 	
+	/**
+	 * return list of patients
+	 */
 	public List<Patient> findAll(){
 		return patientRepository.findAll();
 	}
 
-	@Override
+	/**
+	 * Return history of specific patient
+	 */
 	public History getById(String id) {
 		return historyRepository.getById(id);
 	}
 	
-	@Override
+	/**
+	 * Save History
+	 */
 	public void save(History history) {
 		historyRepository.save(history);		
 	}

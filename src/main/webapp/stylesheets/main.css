@@ -1,0 +1,25 @@
+
+body{
+	margin-left:auto;
+ 	margin-right:auto;
+ 	width:100%;
+ 	background-color: #BDEDFF;
+
+}
+ 
+#title{
+
+	text-align: center;	 	
+}
+
+content{
+ 	height:100%;
+}
+
+nav{
+	text-align: center;
+}
+
+#footer{
+	text-align:center;	
+}

@@ -71,7 +71,7 @@ public class MedicalServiceIntegrationTest {
 		Patient p = new Patient();
 		
 		p.setId("1K");
-		p.setName("Mark Cronin");
+		p.setName("TOM CRONIN");
 		p.setAddress1("Coolinarne");
 		p.setAddress2("Millstreet");
 		p.setAddress3("Co. Cork");
@@ -82,7 +82,7 @@ public class MedicalServiceIntegrationTest {
 		
 		tested.save(p);
 		
-		Patient pFromDB = tested.getPatientName("Mark Cronin");
+		Patient pFromDB = tested.getPatientName("TOM CRONIN");
 		Assert.assertThat(p.getName(), CoreMatchers.equalTo(pFromDB.getName()));
 		Assert.assertThat(tested.findByName("Mark Cronin").size(), CoreMatchers.notNullValue());
 		
@@ -123,7 +123,7 @@ public class MedicalServiceIntegrationTest {
 		rc.setHyperNoOfTimes(2);
 		rc.setHypoEpisode("no");
 		rc.setHypoNoOfTimes(0);
-		rc.setUrineLevel(5.50);
+		rc.setUrineLevel("5.50");
 		rc.setWeight(101.23);
 		rc.setBmi(22);
 		rc.setComment("");

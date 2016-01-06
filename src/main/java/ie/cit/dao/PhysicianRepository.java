@@ -18,8 +18,16 @@ public interface PhysicianRepository {
 	 */
 	void save(Physician physician);
 
+	/**
+	 * @param id
+	 * @return get a specific patient by id
+	 */
 	Physician getById(String id);
 
+	/**
+	 * @param username
+	 * @return name by username
+	 */
 	String getName(String username);
 	
 

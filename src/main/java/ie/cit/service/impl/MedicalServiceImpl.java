@@ -39,41 +39,67 @@ public class MedicalServiceImpl implements MedicalService {
 		this.yearlyCheckupRepository = yearlyCheckupRepository;
 	}
 
+	/**
+	 * Return list of patients
+	 */
 	public List<Patient> findall(String name) {
 		return patientRepository.findAll(name);
 	}
 
+	/**
+	 * get Physician by name
+	 */
 	public String getName(String username) {
 		return physicianRepository.getName(username);
 	}
 
+	/**
+	 * Save Patient
+	 */
 	public void save(Patient patient) {
 		patientRepository.save(patient);		
 	}
 
+	/**
+	 * Save history
+	 */
 	public void save(History history) {
 		historyRepository.save(history);		
 	}
 
+	/**
+	 * Get history of specific patient by id number
+	 */
 	public History getAll(String id) {
 		return historyRepository.getAll(id);
 	}
-
+	
+	/**
+	 * Save Regular Checkup
+	 */
 	public void save(RegularCheckUp regularCheckUp) {
 		regularCheckUpRepository.save(regularCheckUp);
 		
 	}
 
+	/**
+	 * Save yearly Checkup
+	 */
 	public void save(YearlyCheckup yearlyCheckup) {
 		yearlyCheckupRepository.save(yearlyCheckup);
 		
 	}
 
+	/**
+	 * Return list of Regular checkup for a specific patient
+	 */
 	public List<RegularCheckUp> getRegAll(String id) {
 		return regularCheckUpRepository.getRegAll(id);
 	}
 
-
+	/**
+	 * rerturn a List of patient by name
+	 */
 	public List<Patient> findByName(String name) {
 		return patientRepository.findByName(name);
 	}
@@ -87,7 +113,9 @@ public class MedicalServiceImpl implements MedicalService {
 		return patientRepository.getPatientName(name);
 	}
 
-	@Override
+	/**
+	 * List yearly checkup for a specific patient
+	 */
 	public List<YearlyCheckup> getYrAll(String id) {
 		return yearlyCheckupRepository.getYrAll(id);
 	}

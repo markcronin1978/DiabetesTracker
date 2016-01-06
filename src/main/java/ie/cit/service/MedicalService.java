@@ -30,30 +30,64 @@ public interface MedicalService {
 	 * @return
 	 */
 	String getName(String username);
-
+	
+	/**
+	 * Save Patient
+	 * @param patient
+	 */
 	void save(Patient patient);
 
+	/**
+	 * Save History
+	 * @param history
+	 */
 	void save(History history);
 
+	/**
+	 * return specific patient history
+	 * @param id
+	 * @return
+	 */
 	History getAll(String id);
-
+	
+	/**
+	 * Save regular checkup
+	 * @param regularCheckUp
+	 */
 	void save(RegularCheckUp regularCheckUp);
-
+	
+	/**
+	 * Save Yearly Checkup
+	 * @param yearlyCheckup
+	 */
 	void save(YearlyCheckup yearlyCheckup);
 
-	//String getPatientById(String id);
-
+	/**
+	 * return regular history list of specific patient
+	 * @param id
+	 * @return
+	 */
 	List <RegularCheckUp> getRegAll(String id);
-
+	
+	/**
+	 * get Patient By name
+	 * @param name
+	 * @return
+	 */
 	List<Patient> findByName(String name);
 	
 	/**
-	 * Method was created for testing reasons.
+	 * Return a single patient by patient name
 	 * @param name
 	 * @return
 	 */
 	Patient getPatientName(String name);
 
+	/**
+	 * return yearly history list of specific patient
+	 * @param id
+	 * @return
+	 */
 	List<YearlyCheckup> getYrAll(String id);
 	
 		

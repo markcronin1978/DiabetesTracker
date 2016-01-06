@@ -24,6 +24,11 @@ public interface PhysicianService {
 	 */
 	void save(Physician physician);
 
+	/**
+	 * Return Physician by Id number.
+	 * @param id
+	 * @return
+	 */
 	Physician getById(String id);
 
 }

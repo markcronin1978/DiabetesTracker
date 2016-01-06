@@ -24,6 +24,10 @@ public class JdbcHistoryRepository implements HistoryRepository {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
+	/**
+	 * method to check whether to save of update
+	 * history information of a specific patient
+	 */
 	public void save(History history) {
 		if(searchById(history.getPatientId())==null){
 			add(history);
@@ -32,6 +36,11 @@ public class JdbcHistoryRepository implements HistoryRepository {
 		}
 	}
 	
+	/**
+	 * check is history information already exists for a specific patient
+	 * @param id
+	 * @return 
+	 */
 	public History searchById(String id){
 		try{
 			String sql = "SELECT * FROM history WHERE patientid = ?";
@@ -42,6 +51,10 @@ public class JdbcHistoryRepository implements HistoryRepository {
 		return null;
 	}
 	
+	/**
+	 * Insert patient information into database
+	 * @param history
+	 */
 	public void add(History history){
 		jdbcTemplate
 		.update("INSERT INTO history(patientid, smoker, insulindependant, pneumococcalvaccine, comments)"
@@ -49,6 +62,10 @@ public class JdbcHistoryRepository implements HistoryRepository {
 				history.getPneumococcalVaccine(), history.getComments());
 	}
 	
+	/**
+	 * Update existing history information for an patient
+	 * @param history
+	 */
 	public void update(History history){
 		jdbcTemplate
 		.update("UPDATE history set smoker = ?, insulindependant = ?, pneumococcalvaccine = ?, comments = ?"
@@ -56,12 +73,17 @@ public class JdbcHistoryRepository implements HistoryRepository {
 				history.getComments(), history.getPatientId());
 	}
 
+	/**
+	 * return a specific history for patient
+	 */
 	public History getAll(String id) {
 		String sql = "SELECT * FROM history WHERE patientid = ?";
 		return jdbcTemplate.queryForObject(sql, new HistoryMapper(), id);
 	}
 
-	@Override
+	/**
+	 * return a specific history for patient
+	 */
 	public History getById(String id) {
 		String sql = "SELECT * FROM history WHERE patientid = ?";
 		return jdbcTemplate.queryForObject(sql, new HistoryMapper(), id);

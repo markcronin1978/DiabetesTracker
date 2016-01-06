@@ -11,6 +11,9 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class YearlyCheckupMapper implements RowMapper<YearlyCheckup> {
 
+	/**
+	 * here i am using RowMapper the retrieve and add regular checkup information to the database
+	 */
 	public YearlyCheckup mapRow(ResultSet rs, int rowNum) throws SQLException {
 		YearlyCheckup yc = new YearlyCheckup();
 		

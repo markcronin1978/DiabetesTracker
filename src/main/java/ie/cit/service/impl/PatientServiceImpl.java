@@ -21,17 +21,23 @@ public class PatientServiceImpl implements PatientService {
 		this.patientRepository = patientRepository;
 	}
 	
-	@Override
+	/**
+	 * List all Patients
+	 */
 	public List<Patient> findAll() {
 		return patientRepository.findAll();
 	}
 
-	@Override
+	/**
+	 * Get Patient by ID number
+	 */
 	public Patient getById(String id) {
 		return patientRepository.getById(id);
 	}
 
-	@Override
+	/**
+	 * Save Patient
+	 */
 	public void save(Patient patient) {
 		patientRepository.save(patient);
 		

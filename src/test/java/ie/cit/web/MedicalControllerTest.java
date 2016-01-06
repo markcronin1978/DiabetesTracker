@@ -112,7 +112,7 @@ public class MedicalControllerTest {
 		rc.setHyperNoOfTimes(0);
 		rc.setHypoEpisode("no");
 		rc.setHypoNoOfTimes(0);
-		rc.setUrineLevel(20);
+		rc.setUrineLevel("20");
 		rc.setWeight(91.0);
 		rc.setBmi(31);
 		rc.setComment("");

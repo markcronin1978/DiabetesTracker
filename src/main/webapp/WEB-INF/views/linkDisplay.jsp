@@ -22,7 +22,9 @@
 		</sec:authorize>
 
 		
-			<a href="../logout"><b> Logout</b></a>			
+			<!--  <a href="../logout"><b> Logout</b></a>-->	
+			
+			<a href="<c:url value="/logout" />"><b> Logout</b></a>					
 			<form action ="logout" method="post">				
 				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></td>
 			</form>

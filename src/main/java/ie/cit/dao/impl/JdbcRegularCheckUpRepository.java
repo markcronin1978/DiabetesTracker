@@ -24,6 +24,9 @@ public class JdbcRegularCheckUpRepository implements RegularCheckUpRepository {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
+	/**
+	 * Save regular checkup
+	 */
 	public void save(RegularCheckUp regularCheckUp) {
 		jdbcTemplate
 		.update("INSERT INTO regularcheckup (patientid, date, bloodpressurelevel, bloodsugarlevel, cholesterollevel, egfrration, hba1clevel,"
@@ -36,6 +39,9 @@ public class JdbcRegularCheckUpRepository implements RegularCheckUpRepository {
 		
 	}
 
+	/**
+	 * Return a list of checkups for a specific patient id. 
+	 */
 	public List<RegularCheckUp> getRegAll(String id) {
 		String sql = "SELECT * from regularcheckup where patientid = ? ORDER BY date DESC";
 		return jdbcTemplate.query(sql, new RegularCheckUpMapper(), id);

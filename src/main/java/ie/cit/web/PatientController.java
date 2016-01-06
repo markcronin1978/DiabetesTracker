@@ -29,18 +29,36 @@ public class PatientController {
 		this.patientService = patientService;
 	}
 
+	/**
+	 * return list of all patients
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String listPatient(Model model) {
 		model.addAttribute("patient", patientService.findAll());
 		return "editPatientList";
 	}
 
+	/**
+	 * get specific patient information
+	 * @param model
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)    
 	public String editPatient(Model model, @PathVariable String id) {
 		model.addAttribute("patient", patientService.getById(id));  
 		return "editPatientForm"; 										
 	}
 	
+	/**
+	 * Save Patient information
+	 * @param patient
+	 * @param results
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/savePatient", method = RequestMethod.POST)
 	public String addEditPatient(@ModelAttribute @Valid Patient patient, BindingResult results, Model model){
 		if(results.hasErrors()){

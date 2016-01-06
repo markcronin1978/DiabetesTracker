@@ -8,6 +8,9 @@ import ie.cit.domain.RegularCheckUp;
 
 public class RegularCheckUpMapper implements RowMapper<RegularCheckUp> {
 
+	/**
+	 * here i am using RowMapper the retrieve and add regular checkup information to the database
+	 */
 	public RegularCheckUp mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		RegularCheckUp rc = new RegularCheckUp();
@@ -24,7 +27,7 @@ public class RegularCheckUpMapper implements RowMapper<RegularCheckUp> {
 		rc.setHyperNoOfTimes(rs.getInt("hypernooftimes"));
 		rc.setHypoEpisode(rs.getString("hypoepisode"));
 		rc.setHypoNoOfTimes(rs.getInt("hyponooftimes"));
-		rc.setUrineLevel(rs.getDouble("urinelevel"));
+		rc.setUrineLevel(rs.getString("urinelevel"));
 		rc.setWeight(rs.getDouble("weight"));
 		rc.setBmi(rs.getDouble("bmi"));
 		rc.setComment(rs.getString("comment"));

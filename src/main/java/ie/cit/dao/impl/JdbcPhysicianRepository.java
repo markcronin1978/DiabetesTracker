@@ -34,11 +34,7 @@ public class JdbcPhysicianRepository implements PhysicianRepository {
 	}
 
 	/**
-	 * checks to see if physician being passed in is a 
-	 * new or existing physician that is being
-	 *  updated. Calls the physician searchById function
-	 *  and either returns null of physician information. 
-	 *  if null phyisican will be saved, else updated.
+	 * Check whether to update or save physician
 	 */
 	public void save(Physician physician) {
 		if (searchById(physician.getId())==null){
@@ -87,11 +83,17 @@ public class JdbcPhysicianRepository implements PhysicianRepository {
 						physician.getPassword(), physician.getId());
 	}
 
+	/**
+	 * return a physician with a specific ID
+	 */
 	public Physician getById(String id) {
 		String sql = "SELECT * FROM physician WHERE Id = ?";
 		return jdbcTemplate.queryForObject(sql, new PhysicianMapper(), id);
 	}
 
+	/**
+	 * Get Physician Name by username
+	 */
 	public String getName(String username) {
 		String sql = "SELECT name from physician WHERE username = ?";		
 		String name = (String) jdbcTemplate.queryForObject(sql, new Object[] {username}, String.class);

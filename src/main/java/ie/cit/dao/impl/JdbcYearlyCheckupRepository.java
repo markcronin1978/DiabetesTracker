@@ -27,7 +27,9 @@ public class JdbcYearlyCheckupRepository implements YearlyCheckupRepository {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-
+	/**
+	 * Save Yearly Checkup
+	 */
 	public void save(YearlyCheckup yearlyCheckup) {
 		jdbcTemplate
 		.update("INSERT INTO yearlycheckup(patientid, date, eyeretinspathy, fluvaccinerecieved, datefluvaccinerecieved,"
@@ -39,7 +41,9 @@ public class JdbcYearlyCheckupRepository implements YearlyCheckupRepository {
 		
 	}
 
-
+	/**
+	 * Return a list of yearly checkups for a specific patient
+	 */
 	public List<YearlyCheckup> getYrAll(String id) {
 		String sql = "SELECT * FROM yearlycheckup WHERE patientid = ? ORDER BY date DESC"; 
 		return jdbcTemplate.query(sql, new YearlyCheckupMapper(), id);

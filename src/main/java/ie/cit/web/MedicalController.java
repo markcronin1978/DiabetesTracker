@@ -27,9 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MedicalController {
 	
 	private MedicalService medicalService;
-	//Patient p;
 	RegularCheckUp rc = new RegularCheckUp();
-	//Patient patient;
 	Physician physician = new Physician();
 	History history = new History();
 	YearlyCheckup yr = new YearlyCheckup();
@@ -54,6 +52,7 @@ public class MedicalController {
 		   model.addAttribute("patient", medicalService.findall(name));
 		   return "patientList";		   
 	}
+	
 	/**
 	 * Search Database for a specific patient
 	 * @param name
@@ -72,8 +71,9 @@ public class MedicalController {
 			return "patientList";
 		}		
 	}
+	
 	/**
-	 * Add new patient
+	 * display the add new patient form
 	 * @param model
 	 * @return
 	 */
@@ -131,24 +131,7 @@ public class MedicalController {
 			medicalService.save(history);
 			return "redirect:/medicalController/";
 		}
-	}	
-
-	/**
-	 * 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String AddPhysician(@ModelAttribute @Valid Physician physician, BindingResult results, Model model ){
-		if(results.hasErrors()){
-			return "physicianForm";
-		}else{
-			physicianService.save(physician);	
-			return "redirect:/physician/";		
-		}		
 	}
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String ViewMedicalHistory(Model model, @PathVariable String id){
-		model.addAttribute("history", medicalService.getAll(id));
-		return "medicalHist";
-	}
-	**/
 	
 	/**
 	 * create and return regular check-up form for patient with
@@ -183,10 +166,15 @@ public class MedicalController {
 		}
 	}
 	
+	/**
+	 * create and return yearlycheckup form
+	 * check that regular checkup has first be done
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/yearlyCheckUp", method = RequestMethod.GET)
 	public String YearlyCheckUp(Model model){
-		String Error_msg = "Regular Consultation Must be conducted Prior to a Yearly Consultation";
-		
+		String Error_msg = "Regular Consultation Must be conducted Prior to a Yearly Consultation";		
 		try{
 			if(rc.getPatientId().isEmpty()){
 				model.addAttribute("patient", medicalService.findall(physician.getName()));
@@ -195,25 +183,22 @@ public class MedicalController {
 			}else{
 				model.addAttribute("yearlyCheckup", new YearlyCheckup());
 				return "yearlyCheckUp";
-			}
-			
+			}			
 		}catch (NullPointerException E){
 			
-		}
-		
+		}		
 		model.addAttribute("patient", medicalService.findall(physician.getName()));
 		model.addAttribute("Error_msg", Error_msg);
 		return "patientList";
-		/**if(rc.getPatientId() == null){
-			model.addAttribute("patient", medicalService.findall(physician.getName()));
-			model.addAttribute("Error_msg", Error_msg);
-			return "patientList";
-		}else{
-			model.addAttribute("yearlyCheckup", new YearlyCheckup());
-			return "yearlyCheckUp";
-		}**/
 	}
 	
+	/**
+	 * Save yearly check-up form
+	 * @param yearlyCheckup
+	 * @param results
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/saveYearlyCheckup", method = RequestMethod.POST)
 	public String SaveYearlyCheckUp(@ModelAttribute @Valid YearlyCheckup yearlyCheckup, BindingResult results, Model model){
 		if(results.hasErrors()){
