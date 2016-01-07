@@ -89,6 +89,13 @@ public interface MedicalService {
 	 * @return
 	 */
 	List<YearlyCheckup> getYrAll(String id);
+
+	/**
+	 * return patient by ID
+	 * @param id
+	 * @return
+	 */
+	Patient getById(String id);
 	
 		
 	

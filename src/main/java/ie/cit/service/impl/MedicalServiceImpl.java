@@ -120,5 +120,10 @@ public class MedicalServiceImpl implements MedicalService {
 		return yearlyCheckupRepository.getYrAll(id);
 	}
 
+	@Override
+	public Patient getById(String id) {
+		return patientRepository.getById(id);
+	}
+
 
 }

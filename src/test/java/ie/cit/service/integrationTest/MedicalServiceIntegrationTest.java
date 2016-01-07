@@ -86,6 +86,9 @@ public class MedicalServiceIntegrationTest {
 		Assert.assertThat(p.getName(), CoreMatchers.equalTo(pFromDB.getName()));
 		Assert.assertThat(tested.findByName("Mark Cronin").size(), CoreMatchers.notNullValue());
 		
+		Patient pFromDB1 = tested.getById("1K");
+		Assert.assertThat(p.getName(), CoreMatchers.equalTo(pFromDB1.getName()));
+		
 	}
 	
 	/*

@@ -9,7 +9,9 @@
 			
 			<div id="content" style="text-align:center">
 			
-			<h2>Add Patient Information</h2>
+			 <h3>Patient Name: <c:out value="${patient.name}" /></h3>
+			 
+			<h3>Add Patient Information</h3>
 				<c:url value="/medicalController/saveRegCheckup" var="form_url"/>    
 					<form:form action="${form_url}" commandName="regularCheckUp">    
 						<table align="center">

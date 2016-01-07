@@ -144,6 +144,7 @@ public class MedicalController {
 	public String RegularCheckUp(Model model, @PathVariable String id){
 		rc = new RegularCheckUp();
 		rc.setPatientId(id);
+		model.addAttribute("patient", medicalService.getById(id));
 		model.addAttribute("regularCheckUp", new RegularCheckUp());		
 		return "regularCheckup";
 	}
@@ -181,6 +182,7 @@ public class MedicalController {
 				model.addAttribute("Error_msg", Error_msg);
 				return "patientList";
 			}else{
+				model.addAttribute("patient", medicalService.getById(rc.getPatientId()));
 				model.addAttribute("yearlyCheckup", new YearlyCheckup());
 				return "yearlyCheckUp";
 			}			
@@ -221,6 +223,7 @@ public class MedicalController {
 	 */
 	@RequestMapping(value = "/history/{id}", method = RequestMethod.GET)
 	public String ViewMedicalHistory(Model model, @PathVariable String id){
+		model.addAttribute("patient", medicalService.getById(id));
 		model.addAttribute("history", medicalService.getAll(id));
 		model.addAttribute("regHist", medicalService.getRegAll(id));
 		model.addAttribute("yearHist", medicalService.getYrAll(id));
