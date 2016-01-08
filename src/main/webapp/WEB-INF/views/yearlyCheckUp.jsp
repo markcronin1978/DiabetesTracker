@@ -27,8 +27,7 @@
 							</tr>
 							<tr>
 								<td>The date the Flu-Vaccine was received (YYYY-MM-DD):</td>
-								<td><form:input path="dateFluVaccineRecieved" size="30" /></td>
-								<td><form:errors path="dateFluVaccineRecieved" style="color:red" cssclass="error" ></form:errors></td>							
+								<td><form:input path="dateFluVaccineRecieved" size="30" /></td>							
 							</tr>
 							<tr>
 								<td>Has the Patient evidence of a foot infection:</td>
@@ -48,6 +47,7 @@
 							<tr>
 								<td>Evidence of foot corns (Yes/No):</td>
 								<td><form:input path="footCorn" size="30" /></td>
+								<td><form:errors path="footCorn" style="color:red" cssclass="error" ></form:errors></td>
 														
 							</tr>
 							<tr>
@@ -56,8 +56,9 @@
 								<td><form:errors path="abdCircumference" style="color:red" cssclass="error" ></form:errors></td>						
 							</tr>
 							<tr>
-								<td>General comments on the Patients' health:</td>
-								<td><form:textarea path="comment" rows="4" cols="32" /></td>				
+								<td>General comments on the Patients' health (Max 500):</td>
+								<td><form:textarea path="comment" rows="4" cols="32" /></td>
+								<td><form:errors path="comment" style="color:red" cssclass="error" ></form:errors></td>					
 							</tr>
 
 							<tr>						

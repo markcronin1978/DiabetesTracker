@@ -76,8 +76,9 @@
 								<td><form:errors path="bmi" style="color:red" cssclass="error" ></form:errors></td>						
 							</tr>
 							<tr>
-								<td>General Comment on Patients' Health:</td>
-								<td><form:textarea path="comment" rows="4" cols="50" /></td>				
+								<td>General Comment on Patients' Health (Max 500):</td>
+								<td><form:textarea path="comment" rows="4" cols="50" /></td>
+								<td><form:errors path="comment" style="color:red" cssclass="error" ></form:errors></td>				
 							</tr>
 
 							<tr>						

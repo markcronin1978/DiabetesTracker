@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,8 +21,6 @@ public class YearlyCheckup {
 	private String eyeRetinspathy;
 	@NotEmpty
 	private String fluVaccineRecieved;
-	@NotEmpty
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private String dateFluVaccineRecieved;
 	@NotEmpty
 	private String footInfection;
@@ -33,6 +32,7 @@ public class YearlyCheckup {
 	private String footCorn;
 	@NotNull
 	private String abdCircumference; 
+	@Size(max=500)
 	private String comment;
 	
 	public YearlyCheckup(){
