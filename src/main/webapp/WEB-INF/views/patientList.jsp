@@ -6,9 +6,11 @@
 			
 	<jsp:include page="header.jsp" /> <!-- Include the header.jsp page on build -->
 	
-		<jsp:include page="linkDisplay.jsp" />
+		<jsp:include page="linkDisplay.jsp" />	<!-- Include the listDisplay.jsp page on build -->
 		
 		<div id="content" style="text-align:center">
+		
+		<!-- Search database for a specific patient -->
 		
 		<p style="color:red"><c:out value="${Error_msg1}" /></p>
 			<c:url value="/medicalController/name" var="form_url"/>
@@ -19,6 +21,8 @@
 						</tr> 
 					</table>
 				</form:form>
+			
+		<!-- Present list of patient for a specific doctor, also link to medical history -->	
 			
 			<h2>Patient List:</h2>
 			<p>To view a Patients' Medical history Click on Patients' Name.</p>
@@ -43,4 +47,4 @@
 				</table> 
 			</div>
 
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="footer.jsp" />	<!-- Include the footer.jsp page on build -->

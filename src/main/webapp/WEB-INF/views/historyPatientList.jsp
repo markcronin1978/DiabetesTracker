@@ -6,7 +6,7 @@
 			
 	<jsp:include page="header.jsp" /> <!-- Include the header.jsp page on build -->
 	
-		<jsp:include page="linkDisplay.jsp" />
+		<jsp:include page="linkDisplay.jsp" /> <!-- Include the linkDisplay.jsp page on build -->
 		
 		<div id="content" style="text-align:center">
 			
@@ -24,4 +24,6 @@
 						</tr>
 					</c:forEach>   
 				</table> 
-			</div>>
+			</div>
+	
+	<jsp:include page="footer.jsp" /> <!-- Include the footer.jsp page on build -->

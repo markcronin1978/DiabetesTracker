@@ -9,7 +9,7 @@
 			
 		<div id="content" style="text-align:center">
 		
-			<h3>Patient Medical History Information</h3>
+			<h3>Patient Medical History Information</h3>    <!-- present patient history to end user -->
 				<c:url value="/historyController/saveHistory" var="form_url"/>    
 					<form:form action="${form_url}" commandName="history">    <!-- This is the customer form.  -->
 						<table align="center">

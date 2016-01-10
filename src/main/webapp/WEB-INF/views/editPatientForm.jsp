@@ -9,8 +9,8 @@
 		
 		<div id="content" style="text-align:center">
 			
-			<h3>Add Patient Information</h3>
-				<c:url value="/patientController/savePatient" var="form_url"/>    
+			<h3>Add Patient Information</h3>        <!-- present patient information to end user -->
+				<c:url value="/patientController/savePatient" var="form_url"/>     
 					<form:form action="${form_url}" commandName="patient">    <!-- This is the patient form.  -->
 						<table align="center">
 							<tr>

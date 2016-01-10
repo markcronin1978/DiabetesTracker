@@ -9,9 +9,11 @@
 			
 		<div id="content" style="text-align:center">
 		
+												<!-- present end user with medical history form to take information about patient-->
+		
 			<h3>Patient Medical Information</h3>
 				<c:url value="/medicalController/medicalHistory" var="form_url"/>    
-					<form:form action="${form_url}" commandName="history">    <!-- This is the customer form.  -->
+					<form:form action="${form_url}" commandName="history">   
 						<table align="center">
 							<tr>
 								<td>Is the Patient a Smoker: </td>

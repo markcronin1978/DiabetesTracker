@@ -3,7 +3,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
- 
+
+<!-- Link display for web page. Different links will be displayed depending on end user prviliges --> 
 
 <div id = nav style="text-align:center">
 	<ul>  
@@ -20,11 +21,8 @@
 			<a href='<c:url value="/patientController/"/>'><b> Edit Patient Information</b></a> |
 			<a href='<c:url value="/historyController/"/>'><b> Edit Patient Medical Information</b></a> |
 		</sec:authorize>
-
-		
-			<!--  <a href="../logout"><b> Logout</b></a>-->	
 			
-			<a href="<c:url value="/logout" />"><b> Logout</b></a>					
+			<a href='<c:url value="/logout" />'><b> Logout</b></a>					
 			<form action ="logout" method="post">				
 				<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></td>
 			</form>

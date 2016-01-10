@@ -11,6 +11,8 @@
 			
 			<h3>Patient Name: <c:out value="${patient.name}" /></h3>
 			
+			<!-- present end user with form to obtain information about a specific patient during a yearly check up -->
+			
 			<h3>Add Patient Information</h3>
 				<c:url value="/medicalController/saveYearlyCheckup" var="form_url"/>    
 					<form:form action="${form_url}" commandName="yearlyCheckup">    

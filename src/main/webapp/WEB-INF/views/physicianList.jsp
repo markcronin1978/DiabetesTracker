@@ -5,9 +5,11 @@
 			
 	<jsp:include page="header.jsp" /> <!-- Include the header.jsp page on build -->
 	
-		<jsp:include page="linkDisplay.jsp" />
+		<jsp:include page="linkDisplay.jsp" />	<!-- I am including the LinkDisplay.jsp page -->
 		
 		<div id="content" style="text-align:center">
+		
+		<!-- present list of phyisicans -->
 			
 			<h2>Physician List:</h2>
 				<h3>To Edit Physician Information, Click on Physician Name</h3>

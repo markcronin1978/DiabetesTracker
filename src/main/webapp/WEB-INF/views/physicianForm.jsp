@@ -9,6 +9,8 @@
 			
 			<div id="content" style="text-align:center">
 			
+			<!-- present end user with form to take information about physician -->
+			
 			<h3>Add Physician</h3>
 				<c:url value="/physician/" var="form_url"/>    
 					<form:form action="${form_url}" commandName="physician">    

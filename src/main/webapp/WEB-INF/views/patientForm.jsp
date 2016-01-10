@@ -9,6 +9,8 @@
 		
 		<div id="content" style="text-align:center">
 			
+										<!-- Present end user with form to take information about patient -->
+			
 			<h3>Add Patient Information</h3>
 				<c:url value="/medicalController/savePatient" var="form_url"/>    
 					<form:form action="${form_url}" commandName="patient">    <!-- This is the patient form.  -->
