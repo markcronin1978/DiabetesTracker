@@ -81,7 +81,8 @@ public class JdbcPhysicianRepository implements PhysicianRepository {
 						+ " WHERE id = ?", physician.getName(), physician.getAddress1(), physician.getAddress2(), 
 						physician.getAddress3(), physician.getAddress4(), physician.getPhoneNumber(), physician.getUsername(), 
 						physician.getPassword(), physician.getId());
-		jdbcTemplate.update("UPDATE users SET username = ?, password = ?, enabled = ?" + "WHERE username = ?", 
+		jdbcTemplate
+				.update("UPDATE users SET username = ?, password = ?, enabled = ?" + "WHERE username = ?", 
 				physician.getUsername(), physician.getPassword(), true, physician.getUsername());
 
 	}
