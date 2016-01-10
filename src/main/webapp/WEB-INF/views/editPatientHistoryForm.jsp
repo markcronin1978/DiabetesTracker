@@ -11,7 +11,7 @@
 		
 			<h3>Patient Medical History Information</h3>    <!-- present patient history to end user -->
 				<c:url value="/historyController/saveHistory" var="form_url"/>    
-					<form:form action="${form_url}" commandName="history">    <!-- This is the customer form.  -->
+					<form:form action="${form_url}" commandName="history">    
 						<table align="center">
 							<tr>
 								<td>Is the Patient a Smoker: </td>
